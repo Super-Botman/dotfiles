@@ -11,4 +11,4 @@ chmod +x install.sh
 
 ## Screenshot
 
-![screenshot](images/screenshot.jpg)
+![screenshot](images/screenshot.png)
