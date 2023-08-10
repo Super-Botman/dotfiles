@@ -5,14 +5,12 @@ echo "backup .config"
 cp -r .config .config.bak
 
 echo "copying wallpaper"
-if [ -d $HOME/Pictures ]; then
-  mkdir $HOME/Pictures/wallpaper
+if [ -d /usr/share/backgrounds ]; then
+  mv wallpaper-cbp.jpg /usr/share/backgrounds
 else
-  mkdir $HOME/Pictures
-  mkdir $HOME/Pictures/wallpaper
+  mkdir /usr/share/backgrounds
+  mv wallpaper-cbp.jpg /usr/share/backgrounds
 fi
-
-mv wallpaper-cbp.jpg $HOME/Pictures/wallpaper/
 
 echo "install config"
 mv .config $HOME/.config
