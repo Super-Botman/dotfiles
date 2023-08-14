@@ -25,7 +25,7 @@ exec_always xrandr --auto --output eDP-1 --right-of HDMI-1
 exec --no-startup-id dunst
 
 # Display Wallpaper
-exec_always feh --bg-fill $HOME/Pictures/wallpaper/wallpaper-dbp.jpg 
+exec_always feh --bg-fill /usr/share/backgrounds/wallpaper-dbp.jpg 
 
 # start bar at i3 startup
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
