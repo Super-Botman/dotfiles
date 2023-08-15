@@ -36,5 +36,15 @@ mv sddm/theme.conf /usr/share/sddm/themes/sugar-candy
 echo "nerd font install"
 tar -xvzf fonts/AgaveNerdFont.tar.gz -C $HOME/.local/share/fonts/ttf/AgaveNerdFont
 tar -xvzf fonts/AurulentSansMonoNerdFont.tar.gz -C $HOME/.local/share/fonts/ttf/AurulentSansMonoNerdFont
+fc-cache
 
 echo "Installation complete"
+
+echo "reboot ? [Y/n]"
+read reboot
+
+if ("$reboot" == 'n'); then
+	exit
+else
+	reboot
+fi
