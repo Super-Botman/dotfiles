@@ -1,7 +1,6 @@
-USER=$(whoami)
-
-if $USER != 'root'; then
+if [ "$EUID" -ne 0 ]; then
   echo "install.sh must be run as root"
+  exit
 fi
 
 echo "Install all tools"
