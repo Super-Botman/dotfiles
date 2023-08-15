@@ -40,11 +40,11 @@ fc-cache
 
 echo "Installation complete"
 
-echo "reboot ? [Y/n]"
+echo "reboot ? [N/y]"
 read reboot
 
-if ("$reboot" == 'n'); then
-	exit
-else
+if  [ "$reboot" == 'y' ] || [ "$reboot" == 'Y' ]; then
 	reboot
+else
+	exit
 fi
