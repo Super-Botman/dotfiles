@@ -1,5 +1,13 @@
 echo "Install all tools"
-sudo pacman -S alacritty awesome dunst neofetch i3 polybar rofi picom skeuos-gtk-theme-git lxappearance sddm cargo
+sudo pacman -S alacritty awesome dunst neofetch i3-wm polybar rofi picom git lxappearance sddm cargo
+sudo pacman -S --needed git base-devel
+
+echo "Install yay"
+git clone https://aur.archlinux.org/yay.git 
+yay/makepkg -si
+
+echo "Install skeuos"
+yay -S skeuos-gtk-theme-git
 
 echo "backup .config into .config.bak"
 if ! [ -d $HOME/.config ]; then
