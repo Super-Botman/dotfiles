@@ -4,9 +4,9 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 echo "Install all tools"
-pacman -S alacritty awesome dunst neofetch i3 polybar rofi picom skeuos-gtk-theme-git lxaperance sddm
+pacman -S alacritty awesome dunst neofetch i3 polybar rofi picom skeuos-gtk-theme-git lxaperance sddm cargo
 
-echo "backup .config"
+echo "backup .config into .config.bak"
 cp -r -p $HOME/.config $HOME/.config.bak
 
 echo "copying wallpaper"
