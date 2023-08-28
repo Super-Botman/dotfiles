@@ -39,7 +39,7 @@ sudo cp sddm/sddm.conf /etc/
 sudo cp sddm/theme.conf /usr/share/sddm/themes/sugar-candy
 
 echo "nerd font install"
-if ! [ -d $HOME/.local/share]; then
+if ! [ -d $HOME/.local/share ]; then
    mkdir $HOME/.local/share
    if ! [ -d $HOME/.local/share/fonts ]; then
       mkdir $HOME/.local/share/fonts
