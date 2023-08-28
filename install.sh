@@ -4,7 +4,9 @@ sudo pacman -S --needed git base-devel
 
 echo "Install yay"
 git clone https://aur.archlinux.org/yay.git 
-yay/makepkg -si
+cd yay
+./makepkg -si
+cd ..
 
 echo "Install skeuos"
 yay -S skeuos-gtk-theme-git
