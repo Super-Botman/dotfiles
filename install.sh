@@ -38,6 +38,13 @@ cp sddm/sddm.conf /etc
 cp sddm/theme.conf /usr/share/sddm/themes/sugar-candy
 
 echo "nerd font install"
+if ! [ -d $HOME/.local/share/fonts ]; then
+   mkdir $HOME/.local/share/fonts
+   if ! [ -d $HOME/.local/share/fonts/ttf ]; then
+	mkdir $HOME/.local/share/fonts/ttf
+  fi
+fi
+
 tar -xvzf fonts/AgaveNerdFont.tar.gz -C $HOME/.local/share/fonts/ttf/AgaveNerdFont
 tar -xvzf fonts/AurulentSansMonoNerdFont.tar.gz -C $HOME/.local/share/fonts/ttf/AurulentSansMonoNerdFont
 fc-cache
