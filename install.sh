@@ -5,7 +5,7 @@ sudo pacman -S --needed git base-devel
 echo "Install yay"
 git clone https://aur.archlinux.org/yay.git 
 cd yay
-./makepkg -si
+makepkg -si
 cd ..
 
 echo "Install skeuos"
