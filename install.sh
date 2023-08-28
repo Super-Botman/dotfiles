@@ -1,5 +1,5 @@
 echo "Install all tools"
-sudo pacman -S alacritty dunst neofetch i3-wm polybar rofi picom lxappearance sddm cargo qt5-graphicaleffects qt5-quickcontrols2 qt5-svg
+sudo pacman -S alacritty dunst neofetch i3-wm polybar rofi picom lxappearance sddm cargo qt5-graphicaleffects qt5-quickcontrols2 qt5-svg wget
 sudo pacman -S --needed git base-devel
 
 echo "Install yay"
