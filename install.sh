@@ -13,14 +13,15 @@ yay -S skeuos-gtk-theme-git
 
 echo "backup .config into .config.bak"
 if ! [ -d $HOME/.config ]; then
-   cp -r -p $HOME/.config $HOME/.config.bak
+   mv -r -p $HOME/.config $HOME/.config.bak
 fi
 
 echo "copying wallpaper"
 if [ -d /usr/share/backgrounds ]; then
   mv wallpaper/wallpaper-cbp.jpg /usr/share/backgrounds
 else
-  mkdir /usr/share/backgrounds
+  sudo mkdir /usr/share/backgrounds
+  sudo chown -s $USER:$USER /usr/share/backgrounds
   mv wallpaper/wallpaper-cbp.jpg /usr/share/backgrounds
 fi
 
@@ -34,15 +35,18 @@ echo "install sddm theme"
 git clone https://framagit.org/MarianArlt/sddm-sugar-candy.git /usr/share/sddm/themes/
 
 echo "setup sddm"
-cp sddm/sddm.conf /etc
-cp sddm/theme.conf /usr/share/sddm/themes/sugar-candy
+sudo cp sddm/sddm.conf /etc/
+sudo cp sddm/theme.conf /usr/share/sddm/themes/sugar-candy
 
 echo "nerd font install"
-if ! [ -d $HOME/.local/share/fonts ]; then
-   mkdir $HOME/.local/share/fonts
-   if ! [ -d $HOME/.local/share/fonts/ttf ]; then
-	mkdir $HOME/.local/share/fonts/ttf
-  fi
+if ! [ -d $HOME/.local/share]; then
+   mkdir $HOME/.local/share
+   if ! [ -d $HOME/.local/share/fonts ]; then
+      mkdir $HOME/.local/share/fonts
+      if ! [ -d $HOME/.local/share/fonts/ttf ]; then
+	 mkdir $HOME/.local/share/fonts/ttf
+      fi
+   fi
 fi
 
 tar -xvzf fonts/AgaveNerdFont.tar.gz -C $HOME/.local/share/fonts/ttf/AgaveNerdFont
