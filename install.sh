@@ -49,6 +49,8 @@ if ! [ -d $HOME/.local/share ]; then
    fi
 fi
 
+mkdir $HOME/.local/share/fonts/ttf/AgaveNerdFont
+mkdir $HOME/.local/share/fonts/ttf/AurulentSansMonoNerdFont
 tar -xvzf fonts/AgaveNerdFont.tar.gz -C $HOME/.local/share/fonts/ttf/AgaveNerdFont
 tar -xvzf fonts/AurulentSansMonoNerdFont.tar.gz -C $HOME/.local/share/fonts/ttf/AurulentSansMonoNerdFont
 fc-cache
