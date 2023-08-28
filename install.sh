@@ -1,10 +1,5 @@
-if [ "$EUID" -ne 0 ]; then
-  echo "install.sh must be run as root"
-  exit
-fi
-
 echo "Install all tools"
-pacman -S alacritty awesome dunst neofetch i3 polybar rofi picom skeuos-gtk-theme-git lxappearance sddm cargo
+sudo pacman -S alacritty awesome dunst neofetch i3 polybar rofi picom skeuos-gtk-theme-git lxappearance sddm cargo
 
 echo "backup .config into .config.bak"
 if ! [ -d $HOME/.config ]; then
@@ -20,7 +15,7 @@ else
 fi
 
 echo "install config"
-mv .config $HOME/.config
+mv .config $HOME/
 
 echo 'select the theme "skeuos-dark" and icons "papirus"'
 lxappearance
