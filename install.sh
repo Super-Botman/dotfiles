@@ -1,5 +1,5 @@
 echo "Install all tools"
-sudo pacman -S alacritty awesome dunst neofetch i3-wm polybar rofi picom git lxappearance sddm cargo
+sudo pacman -S alacritty dunst neofetch i3-wm polybar rofi picom lxappearance sddm cargo
 sudo pacman -S --needed git base-devel
 
 echo "Install yay"
