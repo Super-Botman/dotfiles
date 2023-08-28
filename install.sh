@@ -34,7 +34,7 @@ lxappearance
 echo "install sddm theme"
 sudo mkdir -p /usr/share/sddm/themes
 wget https://framagit.org/MarianArlt/sddm-sugar-candy/-/archive/v.1.1/sddm-sugar-candy-v.1.1.tar.gz
-sudo tar -xzvf ./sugar-candy-v.1.1.tar.gz -C /usr/share/sddm/themes
+sudo tar -xzvf ./sddm-sugar-candy-v.1.1.tar.gz -C /usr/share/sddm/themes
 
 echo "setup sddm"
 sudo cp sddm/sddm.conf /etc/
