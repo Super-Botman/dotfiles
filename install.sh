@@ -1,5 +1,5 @@
 echo "Install all tools"
-sudo pacman -S alacritty dunst neofetch i3-wm polybar rofi picom lxappearance sddm cargo
+sudo pacman -S alacritty dunst neofetch i3-wm polybar rofi picom lxappearance sddm cargo qt5-graphicaleffects qt5-quickcontrols2 qt5-svg
 sudo pacman -S --needed git base-devel
 
 echo "Install yay"
@@ -32,7 +32,9 @@ echo 'select the theme "skeuos-dark" and icons "papirus"'
 lxappearance
 
 echo "install sddm theme"
-git clone https://framagit.org/MarianArlt/sddm-sugar-candy.git /usr/share/sddm/themes/
+sudo mkdir -p /usr/share/sddm/themes
+wget https://framagit.org/MarianArlt/sddm-sugar-candy/-/archive/v.1.1/sddm-sugar-candy-v.1.1.tar.gz
+sudo tar -xzvf ./sugar-candy-v.1.1.tar.gz -C /usr/share/sddm/themes
 
 echo "setup sddm"
 sudo cp sddm/sddm.conf /etc/
