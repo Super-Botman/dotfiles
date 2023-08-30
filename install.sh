@@ -2,6 +2,9 @@ echo "Install all tools"
 sudo pacman -S alacritty dunst neofetch i3-wm polybar rofi picom lxappearance sddm cargo qt5-graphicaleffects qt5-quickcontrols2 qt5-svg wget
 sudo pacman -S --needed git base-devel
 
+# enable sddm
+systemctl enable sddm && systemctl status sddm
+
 echo "Install yay"
 git clone https://aur.archlinux.org/yay.git 
 cd yay
