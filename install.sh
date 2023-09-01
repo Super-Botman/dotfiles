@@ -40,7 +40,7 @@ wget https://framagit.org/MarianArlt/sddm-sugar-candy/-/archive/v.1.1/sddm-sugar
 sudo tar -xzvf ./sddm-sugar-candy-v.1.1.tar.gz -C /usr/share/sddm/themes
 
 echo "setup sddm"
-mv /usr/share/sddm-sugar-candy-v.1.1 /usr/share/sddm-sugar-candy
+mv /usr/share/sddm-sugar-candy-v.1.1 /usr/share/sugar-candy
 sudo cp sddm/sddm.conf /etc/
 sudo cp sddm/theme.conf /usr/share/sddm/themes/sugar-candy
 
