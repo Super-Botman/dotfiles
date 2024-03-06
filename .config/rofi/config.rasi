@@ -1,24 +1,18 @@
-configuration {
-	modes: "window,drun,run,ssh";
-	font: "AurulentSansM Nerd Font 12";
-	fixed-num-lines: true;
-	show-icons: true;
-	terminal: "Alacritty";
-	auto-select: false;
-	combi-modes: "window,run";
-	window-thumbnail: true;
-	fake-transprency: true;
-	modi: "drun,window,run";
-	sidebar-mode: true;
-  timeout {
-      action: "kb-cancel";
-      delay:  0;
-  }
-  filebrowser {
-      directories-first: true;
-      sorting-method:    "name";
-  }
+configuration{
+    modi: "drun,run,window";
+    icon-theme: "Oranchelo";
+    show-icons: true;
+    terminal: "kitty";
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: true;
+    display-drun: "   Apps ";
+    display-run: "   Run ";
+    display-window: "   Window";
+    display-Network: " 󰤨  Network";
+    sidebar-mode: true;
 }
 
-@import "botheme.rasi"
-@theme "botheme.rasi"
+@theme "catppuccin-mocha"
+
