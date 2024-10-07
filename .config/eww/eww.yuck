@@ -1,0 +1,76 @@
+(defwindow dock 
+  :monitor 0
+  :windowtype "normal"
+  :stacking "fg"
+  :geometry (geometry :width "0%"
+                      :height "0%"
+                      :anchor "center")
+  (dock))
+
+(defwidget dock []
+  (box :class "dock"
+       :orientation "v"
+       :spacing 20
+       :space-evenly false
+       (user)
+       (launcher)
+       (test)))
+
+(defwidget test []
+  (label :text {"CPU " + round(EWW_TEMPS.K10TEMP_TCCD1, 0) + "°C"}))
+   
+(defwidget user []
+  (box :class "user"
+       :halign "start"
+       :valign "start"
+       :orientation "v"
+       :width 200
+       :vexpand false
+       :space-evenly false
+    (box :class "profile" 
+         :style "background-image: url('${iconpath}');")
+    (box :class "text" 
+         :orientation "v"
+      (label :text username
+             :halign "center" 
+             :wrap "true" 
+             :limit-width 25
+             :class "username")
+      (label :text uname
+             :halign "center"
+             :wrap "true"
+             :limit-width 25
+             :class "uname"))))
+
+(defwidget launcher []
+  (box :class "launcher"
+       :valign "end"
+       :halign "start"
+       :active true
+   (_button :cmd "firefox" 
+            :icon "󰈹"
+            :color "red")
+   (_button :cmd "discord" 
+            :icon "󰙯")
+   (_button :cmd "kitty --detach" 
+            :icon "")
+   (_button :cmd "kitty --detach nvim"
+            :icon "")))
+  
+(defwidget _button [cmd icon]
+  (eventbox :cursor "pointer"
+            (box :class "btn"
+                 :valign "baseline"
+                 :halign "baseline"
+                 :height 60
+                 :active true
+                 (button :onclick cmd icon))))
+
+(deflisten username :initial "0xB0tm4n"
+  `whoami`)
+
+(deflisten iconpath :initial "/home/botman/.faces/botman.png"
+  `echo "$HOME/.faces/$(whoami).png"`)
+
+(deflisten uname :initial "botarch"
+  `uname -n`)

@@ -1,0 +1,39 @@
+$background: rgba(0,0,40,0.5);
+* {
+  all: unset; //Unsets everything so you can style everything from scratch
+}
+
+//Global Styles
+.dock {
+  background-color: transparent;
+  font-size: 1.5em;
+}
+
+.btn {
+  padding-left: 20px;
+  padding-right: 32px;
+  background-color: $background;
+  border-radius: 20px;
+  margin-right: 10px;
+}
+
+.user {
+  background-color: $background;
+  border-radius: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.text {
+  padding: 10px;
+  padding-bottom: 30px
+}
+
+.uname {
+  font-size: 0.5em;
+}
+
+.profile{
+  padding: 100px;  
+  background-repeat: no-repeat;
+}
