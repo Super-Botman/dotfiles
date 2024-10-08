@@ -39,7 +39,8 @@ exec_always ./setup_screens.sh
 exec --no-startup-id dunst
 
 # Display Wallpaper
-exec_always feh --bg-fill /usr/share/backgrounds/wallpaper.jpg
+# exec_always feh --bg-fill /usr/share/backgrounds/wallpaper.jpg
+exec_always --no-startup-id $HOME/.config/backgrounds/switch.sh
 
 # start bar at i3 startup
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
