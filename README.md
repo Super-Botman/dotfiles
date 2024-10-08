@@ -2,4 +2,6 @@
 
 ## Screenshot
 
-![screenshot](images/screenshot.png)
+![screenshot](assets/screenshot_night.png)
+![screenshot](assets/screenshot_day.png)
+![video](assets/video.mp4)
