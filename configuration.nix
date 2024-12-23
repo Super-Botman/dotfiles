@@ -63,6 +63,11 @@
       autosuggestions.enable = true;
       zsh-autoenv.enable = true;
       syntaxHighlighting.enable = true;
+      shellAliases = {
+	  update = "sudo nixos-rebuild switch";
+	  run = "source $HOME/Documents/pwninit-sh/.venv/bin/activate; $HOME/Documents/pwninit-sh/run"
+	  pwninit = "source $HOME/Documents/pwninit-sh/.venv; $HOME/Documents/pwninit-sh/pwninit"
+      };
       ohMyZsh = {
          enable = true;
          theme = "af-magic";
@@ -74,6 +79,7 @@
          ];
       };
     };
+   nix-ld.enable = true;
   };
 
   users.users.botman = {
