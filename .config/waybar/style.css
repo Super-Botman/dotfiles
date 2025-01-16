@@ -1,0 +1,101 @@
+@define-color background transparent;
+@define-color foreground rgba(19, 19, 31, 1);
+@define-color workspaces #6F83BF;
+@define-color workspaces-active #8AA2ED;
+@define-color infos #6F83BF;
+@define-color network #6F83BF;
+@define-color pulseaudio #6F83BF;
+@define-color clock #6F83BF;
+
+* {
+  font-family: 'Inconsolata Nerd Font', monospace;
+  font-size: 16px;
+  border-radius: 10px;
+  min-height: 0;
+  padding: 0;
+  margin: 0;
+}
+
+window#waybar {
+  padding: 0px;
+  margin: 0px;
+}
+
+.background {
+  background-color: @background;
+}
+
+.module {
+  color: @foreground;
+  margin: 5px 10px 5px 10px;
+  padding: 0px 15px 0px 20px;
+}
+
+#workspaces {
+  padding: 0;
+}
+
+
+#workspaces button {
+  color: @foreground;
+  background-color: @workspaces;
+  padding: 6px 16px 6px 10px;
+  margin: 0px 5px 0px 5px;
+}
+
+#workspaces button:hover {
+  box-shadow: none;
+  text-shadow: none;
+  background: none;
+  transition: none;
+  background-color: @workspaces-active;
+}
+
+#workspaces .active {
+  background-color: @workspaces-active;
+}
+
+#clock{
+  background-color: @clock;
+}
+
+#custom-power {
+  background-color: @power;
+}
+
+#pulseaudio {
+  background-color: @pulseaudio;
+}
+
+#network {
+  background-color: @network;
+}
+
+#window {
+  color: #fff;
+}
+
+#memory {
+  border-radius: 0px;
+  padding: 8px;
+}
+
+#cpu {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  padding: 0px;
+  padding-left: 20px;
+}
+
+#temperature {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  padding: 0px;
+  padding-right: 20px;
+}
+
+#cpu, #memory, #temperature {
+  /*padding: 5px;*/
+  margin: 5px 0px 5px 0px;
+  background-color: @infos;
+}

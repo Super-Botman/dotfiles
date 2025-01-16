@@ -1,0 +1,3 @@
+include ./theme.conf
+window_padding_width 15
+font_family JetbrainsMono Nerd Font 

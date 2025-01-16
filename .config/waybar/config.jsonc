@@ -1,0 +1,73 @@
+// -*- mode: jsonc -*-
+{
+  "layer": "top",
+  "height": 40,
+  "margin": "10 20 0 20",
+  "modules-left": [
+    "hyprland/workspaces",
+    "cpu",
+    "memory",
+    "temperature",
+  ],
+  "modules-center": [
+    "hyprland/window"
+  ],
+  "modules-right": [
+    "network",
+    "pulseaudio",
+    "clock",
+  ],
+  "hyprland/workspaces": {
+    "disable-scroll": false,
+    "all-outputs": true,
+    "warp-on-scroll": false,
+    "format": "{icon}",
+    "format-icons": {
+      "Terminal": "",
+      "Firefox": "",
+      "KeepassXC": "",
+      "Discord": "",
+      "urgent": "",
+      "active": "",
+      "default": ""
+    }
+  },
+  "clock": {
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "format-alt": "{:%Y-%m-%d}"
+  },
+  "cpu": {
+    "format": "{usage}%  ",
+    "tooltip": false
+  },
+  "memory": {
+    "format": "{used:0.1f}G  "
+  },
+  "temperature": {
+    "critical-threshold": 80,
+    "format": "{temperatureC}°C {icon}",
+    "format-icons": ["", "", ""]
+  },
+  "network": {
+    "format-wifi": "{bandwidthDownBits}   | {bandwidthUpBits}  ",
+    "format-ethernet": "{bandwidthDownBits}   | {bandwidthUpBits}  ",
+    "format-linked": "{ifname} (No IP)  ",
+    "format-disconnected": " ",
+    "format-alt": "{} | {ifname}: {ipaddr}/{cidr}",
+    "interval": 5
+  },
+  "pulseaudio": {
+    "format": "{volume}% {icon} {format_source}",
+    "format-source": "{volume}% ",
+
+    "format-bluetooth-muted": "0% 󰂲 {format_source}",
+    "format-muted": "0%   {format_source}",
+    "format-source-muted": "0%  ",
+    
+    "format-icons": {
+      "headset": ["󰂯"],
+      "default": ["", " ", " "]
+    },
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+  }
+}
