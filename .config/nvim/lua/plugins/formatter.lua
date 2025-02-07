@@ -20,7 +20,6 @@ return {
   },
   "vim-autoformat/vim-autoformat",
 
-  -- autocompletion
   {
     "neovim/nvim-lspconfig",
     lazy = false,
@@ -35,6 +34,4 @@ return {
       }
     end
   },
-
-
 }

@@ -3,8 +3,7 @@
  "logo": {
   "source": "~/.config/fastfetch/archpuccinn.png",
   "type": "kitty-direct",
-  "height": 7,
-  "width": 16,
+  "width": 20,
   "padding": {
     "top": 2,
     "left": 3

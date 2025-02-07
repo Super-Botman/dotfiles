@@ -6,8 +6,9 @@
   "type": "kitty-direct",
   "width": 35,
   "padding": {
-    "top": 1,
-    "left": 1
+    "top": 4,
+    "left": 3,
+    "right": 4
     }
   },
 "display": {

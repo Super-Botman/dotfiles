@@ -5,6 +5,17 @@ require("mason-lspconfig").setup_handlers({
   end,
 })
 
+lspconfig.lua_ls.setup({
+  settings = {
+    Lua = {
+      diagnostics = {
+        -- Get the language server to recognize the `vim` global
+        globals = { 'vim' },
+      },
+    },
+  },
+})
+
 local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
 parser_config.gotmpl = {
   install_info = {
