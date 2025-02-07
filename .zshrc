@@ -58,5 +58,7 @@ function y() {
 
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
+alias build_pdf="pandoc *.md -o ${PWD##*/}.pdf && firefox ./${PWD##*/}.pdf"
+
 alias rm="rm -rI"
 alias vps='ssh -o "SetEnv SECRET=WiAfzoMTPoAvHrVZHSsJTWQn" root@adm.segfault.net'
