@@ -6,16 +6,14 @@ return {
     opts = {
       style = "moon",
       transparent = true,
-      terminal_colors = true,
       styles = {
-        comments = { italic = true },
-        keywords = { italic = true },
-        functions = {},
-        variables = {},
         sidebars = "transparent",
         floats = "transparent",
       },
-    }
+    },
+    init = function()
+      vim.cmd([[colorscheme tokyonight]])
+    end,
   },
   {
     "akinsho/bufferline.nvim",
@@ -49,6 +47,11 @@ return {
           return v.hl_group
         end, vim.tbl_values(require('bufferline.config').highlights))
       )
-    end
+    end,
+    opts = {
+      extra_groups = {
+        "NvimTreeNormal",
+      }
+    }
   }
 }

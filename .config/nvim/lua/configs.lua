@@ -1,20 +1,34 @@
-local lspconfig = require("lspconfig")
-require("mason-lspconfig").setup_handlers({
-  function(server)
-    lspconfig[server].setup({})
-  end,
-})
-
-lspconfig.lua_ls.setup({
-  settings = {
+local servers = {
+  ltex = {
+    ltex = {
+      language = "auto" -- Override the ltex.language setting
+    }
+  },
+  lua_ls = {
     Lua = {
+      workspace = {
+        checkThirdParty = false,
+        library = vim.api.nvim_get_runtime_file("", true)
+      },
+      telemetry = { enable = false },
       diagnostics = {
-        -- Get the language server to recognize the `vim` global
         globals = { 'vim' },
       },
+
     },
   },
-})
+  ["harper-ls"] = {
+    isolateEnglish = true,
+  }
+}
+
+require("mason-lspconfig").setup_handlers {
+  function(server_name)
+    require('lspconfig')[server_name].setup {
+      settings = servers[server_name],
+    }
+  end,
+}
 
 local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
 parser_config.gotmpl = {

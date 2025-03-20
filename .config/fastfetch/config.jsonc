@@ -1,4 +1,3 @@
-
 {
 "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
 "logo": {
@@ -36,6 +35,7 @@
     "key": "│ └",
     "keyColor": "yellow"
     },
+    "break",
     {
     "type": "wm",
     "key": " DE/WM",
@@ -66,8 +66,9 @@
     "key": "│ └",
     "keyColor": "blue"
     },
+    "break",
     {
-    "type": "host",
+    "type": "board",
     "key": "󰌢 SYSTEM",
     "keyColor": "green"
     },
@@ -83,7 +84,7 @@
     "keyColor": "green"
     },
     {
-            "type": "display",
+    "type": "display",
     "key": "│ ├󰍹",
     "keyColor": "green",
     "compactType": "original-with-refresh-rate"
@@ -108,6 +109,7 @@
     "key": "│ └󰍹",
     "keyColor": "green"
     },
+    "break",
     {
     "type": "sound",
     "key": " AUDIO",

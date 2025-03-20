@@ -5,8 +5,5 @@ return { {
     require("fzf-lua").setup({})
   end
 },
-  {
-    "nvim-tree/nvim-tree.lua",
-    opts = {}
-  },
+  { "nvim-tree/nvim-tree.lua", opts = {} }
 }

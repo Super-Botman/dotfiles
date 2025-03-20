@@ -3,6 +3,8 @@
 
 export ZSH="$HOME/.oh-my-zsh"
 export PATH="$PATH:$HOME/.local/bin"
+export PATH="$PATH:$HOME/.bun/bin"
+
 export EDITOR=$(which nvim)
 
 ZSH_THEME="xiong-chiamiov-plus"
@@ -15,7 +17,9 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-fastfetch -c $HOME/.config/fastfetch/config-compact.jsonc
+if [[ -z "${VIMRUNTIME}" ]]; then
+  fastfetch -c $HOME/.config/fastfetch/config-compact.jsonc
+fi
 source <(fzf --zsh)
 
 HISTFILE=~/.zsh_history
@@ -57,8 +61,7 @@ function y() {
 }
 
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-
-alias build_pdf="pandoc *.md -o ${PWD##*/}.pdf && firefox ./${PWD##*/}.pdf"
-
+alias pdf="pandoc *.md -o ${PWD##*/}.pdf && firefox ./${PWD##*/}.pdf"
 alias rm="rm -rI"
 alias vps='ssh -o "SetEnv SECRET=WiAfzoMTPoAvHrVZHSsJTWQn" root@adm.segfault.net'
+

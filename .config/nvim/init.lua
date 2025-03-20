@@ -1,21 +1,3 @@
--- lazy.nvim
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable",
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
-
-require("lazy").setup("plugins")
-require("configs")
-
-vim.cmd [[colorscheme tokyonight]]
 vim.g.coq_settings = { auto_start = "shut-up" }
 vim.g.mapleader = " "
 vim.opt.mouse = ""
@@ -37,8 +19,27 @@ vim.filetype.add({
     c3t = "c3",
   },
 })
+vim.o.shell = '/bin/zsh -i'
+vim.o.termguicolors = true
 
 vim.keymap.set("n", "<Leader>ff", ":FzfLua files<CR>", {})
 vim.keymap.set("n", "<Leader>fg", ":FzfLua grep<CR>", {})
 vim.keymap.set("n", "<Leader>fm", ":FzfLua manpages<CR>", {})
 vim.keymap.set("n", "<Leader>f", ":NvimTreeToggle<CR>", {})
+
+-- lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable",
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
+require("lazy").setup("plugins")
+require("configs")
