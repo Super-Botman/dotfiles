@@ -1,0 +1,196 @@
+# Default config for sway
+#
+# Copy this to ~/.config/sway/config and edit it to your liking.
+#
+# Read `man 5 sway` for a complete reference.
+
+### Variables
+#
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+set $term kitty
+set $filemanager dolphin
+set $menu wofi --show drun --style ~/.config/wofi/style.css
+set $powermenu ~/.config/wofi/powermenu.sh
+set $screenshot grimshot copy area
+set $waybar $HOME/.config/waybar/waybar.sh
+
+# Autostart applications
+exec --no-startup-id $term
+exec --no-startup-id firefox & discord & keepassxc
+exec --no-startup-id $waybar & swaybg -m fill & swayidle
+exec --no-startup-id xsetroot -cursor_name WhiteSur-cursors &
+exec_always swaync
+
+bindsym $mod+Return exec $term
+bindsym $mod+Shift+q kill
+bindsym $mod+d exec $menu
+
+floating_modifier $mod normal
+bindsym $mod+Shift+c reload
+
+# Exit sway (logs you out of your Wayland session)
+bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+### Idle configuration
+exec swayidle -w \
+          timeout 240 '$HOME/.config/sway/scripts/lock.sh' \
+          before-sleep '$HOME/.config/sway/scripts/lock.sh'
+
+
+### Manual Lock
+bindsym --release $mod+Control+s exec '$HOME/.config/sway/scripts/lock.sh'
+
+#
+# Moving around:
+#
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+#
+# Workspaces:
+#
+# Workspaces
+set $ws1 "1: Terminal"
+set $ws2 "2: Firefox"
+set $ws3 "3: KeepassXC"
+set $ws4 "4: Discord"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+
+bindsym $mod+ampersand  workspace $ws1
+bindsym $mod+eacute     workspace $ws2
+bindsym $mod+quotedbl   workspace $ws3
+bindsym $mod+apostrophe workspace $ws4
+bindsym $mod+parenleft  workspace $ws5
+bindsym $mod+minus 	    workspace $ws6
+bindsym $mod+egrave     workspace $ws7
+bindsym $mod+underscore workspace $ws8
+bindsym $mod+ccedilla   workspace $ws9
+bindsym $mod+agrave     workspace $ws10
+
+bindsym $mod+Shift+ampersand  move container to workspace $ws1
+bindsym $mod+Shift+eacute     move container to workspace $ws2
+bindsym $mod+Shift+quotedbl   move container to workspace $ws3
+bindsym $mod+Shift+apostrophe move container to workspace $ws4
+bindsym $mod+Shift+parenleft  move container to workspace $ws5
+bindsym $mod+Shift+minus 	    move container to workspace $ws6
+bindsym $mod+Shift+egrave     move container to workspace $ws7
+bindsym $mod+Shift+underscore move container to workspace $ws8
+bindsym $mod+Shift+ccedilla   move container to workspace $ws9
+bindsym $mod+Shift+agrave     move container to workspace $ws10
+
+assign [app_id="firefox"] workspace $ws2
+assign [class="KeePassXC"] workspace $ws3
+assign [class="discord"] workspace $ws4
+
+# Miscellaneous
+for_window [class=".*"] focus on
+
+gaps inner 8
+gaps outer 8
+smart_borders on
+titlebar_border_thickness 0
+default_border none
+corner_radius 20
+blur enable
+blur_passes 1
+blur_radius 4
+blur_noise 0.2
+
+output * background $HOME/.config/wallpapers/wallpaper.png fill
+
+#
+# Layout stuff:
+#
+# You can "split" the current object of your focus with
+# $mod+b or $mod+v, for horizontal and vertical splits
+# respectively.
+bindsym $mod+b splith
+bindsym $mod+v splitv
+
+# Switch the current container between different layout styles
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# Make the current focus fullscreen
+bindsym $mod+f fullscreen
+
+# Toggle the current focus between tiling and floating mode
+bindsym $mod+Shift+space floating toggle
+
+# Swap focus between the tiling area and the floating area
+bindsym $mod+space focus mode_toggle
+
+# Move focus to the parent container
+bindsym $mod+a focus parent
+
+#
+# Resizing containers:
+#
+mode "resize" {
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+#
+# Utilities:
+#
+# Special keys to adjust volume via PulseAudio
+bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
+bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -5%
+bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +5%
+bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
+
+# Special keys to adjust brightness via brightnessctl
+bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
+
+# Special key to take a screenshot with grim
+bindsym $mod+escape exec $screenshot
+
+input * {
+    xkb_layout "fr"
+}
+
+include @sysconfdir@/sway/config.d/*

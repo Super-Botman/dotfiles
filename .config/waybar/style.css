@@ -55,6 +55,10 @@ window#waybar {
   background-color: @workspaces-active;
 }
 
+#workspaces .focused {
+  background-color: @workspaces-active;
+}
+
 #window {
   background-color: @background;
   color: #fff;

@@ -5,17 +5,20 @@
   "margin": "5 10 -16 10",
   "modules-left": [
     "hyprland/workspaces",
+    "sway/workspaces",
     "cpu",
     "memory",
     "temperature",
   ],
   "modules-center": [
-    "hyprland/window"
+    "hyprland/window",
+    "sway/window"
   ],
   "modules-right": [
     "network",
     "pulseaudio",
     "clock",
+    "battery"
   ],
   "hyprland/workspaces": {
     "disable-scroll": false,
@@ -32,6 +35,22 @@
       "default": ""
     }
   },
+  "sway/workspaces": {
+    "all-outputs": true,
+    "offscreen-css": true, 
+    "format": "{icon}",
+    "offscreen-css-text": "(inactive)",
+    "format-icons": {
+      "1: Terminal": "",
+      "2: Firefox": "",
+      "3: KeepassXC": "",
+      "4: Discord": "",
+      "urgent": "",
+      "focused": "",
+      "default": ""
+    }
+  },
+
   "clock": {
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "format-alt": "{:%Y-%m-%d}"
