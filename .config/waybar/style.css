@@ -1,11 +1,8 @@
 @define-color background transparent;
-@define-color foreground rgba(19, 19, 31, 1);
-@define-color workspaces #6F83BF;
-@define-color workspaces-active #8AA2ED;
-@define-color infos #6F83BF;
-@define-color network #6F83BF;
-@define-color pulseaudio #6F83BF;
-@define-color clock #6F83BF;
+@define-color foreground #C6D0E9;
+@define-color color #6F83BF;
+@define-color color rgba(32, 32, 42, 0.6);
+@define-color workspaces-active rgba(32, 32, 42, 1);
 
 * {
   font-family: 'Inconsolata Nerd Font', monospace;
@@ -16,29 +13,32 @@
   margin: 0;
 }
 
+
 window#waybar {
   padding: 0px;
   margin: 0px;
 }
 
 .background {
-  background-color: @background;
+  background-color: @transparent;
 }
 
 .module {
-  color: @foreground;
   margin: 5px 10px 5px 10px;
   padding: 0px 15px 0px 20px;
+  background-color: @color;
+  color: @foreground;
 }
 
 #workspaces {
   padding: 0;
+  background-color: @background;
 }
 
 
 #workspaces button {
+  background-color: @color;
   color: @foreground;
-  background-color: @workspaces;
   padding: 6px 16px 6px 10px;
   margin: 0px 5px 0px 5px;
 }
@@ -55,23 +55,8 @@ window#waybar {
   background-color: @workspaces-active;
 }
 
-#clock{
-  background-color: @clock;
-}
-
-#custom-power {
-  background-color: @power;
-}
-
-#pulseaudio {
-  background-color: @pulseaudio;
-}
-
-#network {
-  background-color: @network;
-}
-
 #window {
+  background-color: @background;
   color: #fff;
 }
 
@@ -94,8 +79,8 @@ window#waybar {
   padding-right: 20px;
 }
 
-#cpu, #memory, #temperature {
-  /*padding: 5px;*/
+#cpu,
+#memory,
+#temperature {
   margin: 5px 0px 5px 0px;
-  background-color: @infos;
 }
