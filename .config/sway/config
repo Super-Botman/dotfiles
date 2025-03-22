@@ -23,7 +23,7 @@ set $waybar $HOME/.config/waybar/waybar.sh
 # Autostart applications
 exec --no-startup-id $term
 exec --no-startup-id firefox & discord & keepassxc
-exec --no-startup-id $waybar & swaybg -m fill & swayidle
+exec --no-startup-id $waybar & swaybg -m fill & swayidle & gromit-mpx
 exec --no-startup-id xsetroot -cursor_name WhiteSur-cursors &
 exec_always swaync
 
@@ -114,8 +114,8 @@ assign [class="discord"] workspace $ws4
 # Miscellaneous
 for_window [class=".*"] focus on
 
-gaps inner 8
-gaps outer 8
+gaps inner 10
+gaps outer 10
 smart_borders on
 titlebar_border_thickness 0
 default_border none
@@ -172,6 +172,26 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+mode "gromit-mpx" {
+    # toggle painting
+    bindsym f9 exec gromit-mpx --toggle
+    # clear
+    bindsym Shift+f9 exec gromit-mpx --clear
+    # toggle visibility
+    bindsym Ctrl+f9 exec gromit-mpx --visibility
+    # quit
+    bindsym Alt+f9 exec gromit-mpx --quit
+    # undo
+    bindsym f8 exec gromit-mpx --undo
+    # redo
+    bindsym Shift+f8 exec gromit-mpx --redo
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+g mode "gromit-mpx"
 
 #
 # Utilities:

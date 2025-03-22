@@ -30,9 +30,17 @@ window#waybar {
   color: @foreground;
 }
 
+.module:hover {
+  border: 1px solid @foreground;
+}
+
 #workspaces {
   padding: 0;
   background-color: @background;
+}
+
+#workspaces:hover {
+  border: none;
 }
 
 
@@ -66,10 +74,14 @@ window#waybar {
 
 #memory {
   border-radius: 0px;
-  padding: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-left-color: transparent;
+  border-right-color: transparent;
 }
 
 #cpu {
+  border-right-color: transparent;
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
   padding: 0px;
@@ -77,6 +89,7 @@ window#waybar {
 }
 
 #temperature {
+  border-left-color: transparent;
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
   padding: 0px;

@@ -2,7 +2,7 @@
 {
   "layer": "top",
   "height": 40,
-  "margin": "5 10 -16 10",
+  "margin": "2 8 -15 2",
   "modules-left": [
     "hyprland/workspaces",
     "sway/workspaces",
@@ -88,5 +88,6 @@
       "default": ["", " ", " "]
     },
     "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
-  }
+  },
+  "battery": {}
 }

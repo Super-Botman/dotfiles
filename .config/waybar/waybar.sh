@@ -1,14 +1,9 @@
 #!/bin/sh
 
 while true; do
-  cursor=$(hyprctl cursorpos | cut -d " " -f 2)
-  echo $cursor
+  cursor=0
   waybar=$(pidof waybar)
   treshold=30
-
-  if [ -z "$cursor" ]; then
-    break
-  fi
 
   if (( $cursor <= $treshold )) && [ -z "$waybar" ]; then
     waybar &
@@ -19,4 +14,4 @@ while true; do
   fi
   sleep 0.3
 done
-waybar 
+
